@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Modern Browser Virtual Assistant using Web Speech API (HTML, CSS, JavaScript) — responsive UI with chat view." />
+  <title>Virtual Assistant — Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Virtual Assistant <span class="tag">Pro</span></h1>
+      <nav class="nav">
+        <a href="#" id="howToUseBtn" class="link">How it works</a>
+        <a href="https://github.com/raiankit0125" target="_blank" rel="noopener" class="link">GitHub</a>
+        <a href="https://raiankit0125.github.io/ai-assistant/" target="_blank" rel="noopener" class="btn small">Live Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card glass">
+      <div class="hero-copy">
+        <h2>Talk to your browser</h2>
+        <p class="muted">
+          Click the mic and speak. Your voice becomes text, and the assistant replies with speech.
+          Fully client‑side. No backend. Built with the Web Speech API.
+        </p>
+        <div class="badges">
+          <span class="badge">HTML</span>
+          <span class="badge">CSS</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge outline">Web Speech API</span>
+          <span class="badge outline">Responsive</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="viz mic-ring" aria-hidden="true">
+          <button id="micBtn" class="mic-btn" aria-pressed="false" aria-label="Start voice recognition">
+            <svg viewBox="0 0 24 24" class="mic-icon" aria-hidden="true">
+              <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3z"/>
+              <path d="M19 11a1 1 0 1 0-2 0 5 5 0 1 1-10 0 1 1 0 0 0-2 0 7 7 0 0 0 6 6.92V21H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-3.08A7 7 0 0 0 19 11z"/>
+            </svg>
+          </button>
+          <div class="mic-status" id="micStatus">Idle</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout-grid">
+      <div class="chat glass">
+        <div class="chat-header">
+          <h3>Conversation</h3>
+          <div class="chat-actions">
+            <button id="clearChatBtn" class="btn ghost small" title="Clear conversation">Clear</button>
+            <button id="copyLastBtn" class="btn ghost small" title="Copy last reply">Copy Reply</button>
+          </div>
+        </div>
+        <div id="chatList" class="chat-list" aria-live="polite"></div>
+        <form id="textForm" class="text-form" autocomplete="off">
+          <input id="textInput" class="input" type="text" placeholder="Type a message and press Enter…" aria-label="Message input" />
+          <button class="btn" type="submit" title="Send">Send</button>
+        </form>
+      </div>
+
+      <aside class="panel glass">
+        <h3>Voice Settings</h3>
+        <div class="field">
+          <label for="voiceSelect">Voice</label>
+          <select id="voiceSelect" class="input"></select>
+        </div>
+        <div class="field">
+          <label for="rateRange">Rate: <span id="rateVal">1.0</span></label>
+          <input id="rateRange" type="range" class="range" min="0.6" max="1.4" step="0.1" value="1.0" />
+        </div>
+        <div class="field">
+          <label for="pitchRange">Pitch: <span id="pitchVal">1.0</span></label>
+          <input id="pitchRange" type="range" class="range" min="0.6" max="1.4" step="0.1" value="1.0" />
+        </div>
+        <div class="divider"></div>
+        <h4>Quick Commands</h4>
+        <ul class="tips">
+          <li>“what’s the time?”</li>
+          <li>“date today”</li>
+          <li>“open github”</li>
+          <li>“your name?”</li>
+          <li>“clear chat”</li>
+        </ul>
+        <div class="note muted small">Best on Chromium browsers. Microphone permission required.</div>
+      </aside>
+    </section>
+  </main>
+
+  <dialog id="howToUse">
+    <form method="dialog" class="dialog-card glass">
+      <h3>How it works</h3>
+      <ol>
+        <li>Click the mic. Speak your message.</li>
+        <li>Your speech is transcribed in real‑time.</li>
+        <li>The assistant responds and speaks back using Text‑to‑Speech.</li>
+      </ol>
+      <p class="muted small">No data leaves your browser. Everything runs locally using Web Speech API.</p>
+      <div class="dialog-actions">
+        <button class="btn" value="ok">Got it</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Built by Ankit Rai — HTML • CSS • JavaScript • Web Speech API</small>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
